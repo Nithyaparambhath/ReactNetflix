@@ -1,25 +1,41 @@
-import logo from './logo.svg';
+import axios from 'axios';
+import React,{useEffect, useState} from 'react';
 import './App.css';
+import Banner from './components/Banner/Banner';
+import Navbar from './components/Navbar/Navbar';
+import Rowpost from './components/Rowpost/Rowpost';
+import {originals,action} from './Urls';
+// import axios from 'axios';
+import { API_KEY } from './constants/constants';
 
 function App() {
+ 
+  useEffect(()=>{
+    axios.get(`https://api.themoviedb.org/3/trending/all/week?api_key=${API_KEY}&language=en-US`).then((res)=>{
+     
+    const array =res.data.results;
+   
+        setInfo(array[0])
+
+   
+       
+    })
+    
+  },[])
+  
+ 
+  const [info,setInfo] = useState([])
+ 
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <Banner info ={info} />
+      <Rowpost urls={originals} title="Netflix Originals" />
+       <Rowpost urls={action} title="Action" isSmall />
     </div>
-  );
-}
+  )
+  }
 
-export default App;
+
+export default App
