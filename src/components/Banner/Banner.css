@@ -38,3 +38,28 @@
     #111
   );
 }
+
+/*--Responsive--*/
+@media only screen and (max-width: 991px) {
+  .description {
+    color: #fff;
+    width: 73%;
+    font-size: 17px;
+    margin: 10px 0;
+  }
+}
+@media only screen and (max-width: 580px) {
+  .description {
+    width: 76%;
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .title {
+    font-size: 1.5rem;
+  }
+  .description {
+    width: 78%;
+    font-size: 14px;
+  }
+}

@@ -36,3 +36,29 @@
 .smallPoster:hover {
   transform: scale(1.1);
 }
+
+/*--Responsive--*/
+@media only screen and (max-width: 580px) {
+  .poster {
+    max-height: 142px;
+  }
+  .smallPoster {
+    max-height: 89px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .poster {
+    max-height: 118px;
+  }
+  .smallPoster {
+    max-height: 74px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .poster {
+    max-height: 152px;
+  }
+  .smallPoster {
+    max-height: 71px;
+  }
+}
